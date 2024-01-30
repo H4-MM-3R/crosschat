@@ -4,6 +4,9 @@ import Button from '@/components/ui/Button'
 import { FC, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { toast } from 'react-hot-toast'
+import Link from 'next/link'
+import { Icons } from '@/components/Icons'
+import Image from 'next/image'
 
 const Page: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -21,13 +24,16 @@ const Page: FC = () => {
   }
 
   return (
-    <>
-      <div className='flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
-        <div className='w-full flex flex-col items-center max-w-md space-y-8'>
+    <div className='bg-gradient-to-t from-indigo-600 to-white'>
+      <div className='flex min-h-screen items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
+        <div className='w-full flex flex-col items-center max-w-md space-y-8 p-12 rounded-xl bg-white/40 backdrop-blur'>
           <div className='flex flex-col items-center gap-8'>
-            logo
-            <h2 className='mt-6 text-center text-3xl font-bold tracking-tight text-gray-900'>
-              Sign in to your account
+        <Link href='/dashboard' className='flex w-full gap-4 items-center justify-center'>
+            <h1 className='font-sans font-black text-5xl text-indigo-600'>CrossChat</h1>
+          <Icons.Logo className='h-10 w-auto text-indigo-600' />
+        </Link>
+            <h2 className='text-center text-3xl font-bold tracking-tight text-gray-900'>
+              Sign-in to your account here
             </h2>
           </div>
 
@@ -69,7 +75,7 @@ const Page: FC = () => {
           </Button>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
